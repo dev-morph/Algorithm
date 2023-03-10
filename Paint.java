@@ -3,10 +3,14 @@ import java.util.Arrays;
 public class Paint {
     static public int solution(int n, int m, int[] section) {
         int answer = 0;
-        // 오름차순 정렬
-        Arrays.sort(section);
-        int targetWidth = section[section.length -1] - section[0] + 1;
-        answer = targetWidth % m == 0 ? targetWidth/m : targetWidth/m + 1;
+        // 정렬은 이미 되어 있음.
+        int paintedWall = 0;
+        for(int s : section){
+            if(paintedWall < s){
+                paintedWall = s + m -1;
+                answer ++;
+            }
+        }
         System.out.println(answer);
         return answer;
     }
