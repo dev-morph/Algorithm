@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Paint {
     static public int solution(int n, int m, int[] section) {
         int answer = 0;
