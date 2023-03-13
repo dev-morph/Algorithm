@@ -11,13 +11,12 @@ public class Keyboard {
                     String k = key.substring(i, i + 1);
 
                     if(!shortestMap.containsKey(k)){
-                        shortestMap.put(k, i);
-                    }else if(shortestMap.containsKey(k) && shortestMap.get(k) > i){
-                        shortestMap.replace(key, i);
+                        shortestMap.put(k, i+1);
+                    }else if(shortestMap.containsKey(k) && shortestMap.get(k) > i+1){
+                        shortestMap.replace(k, i+1);
                     }
                 }
             }
-
             int answerIndex = 0;
             for( String target : targets ){
                 int count = 0;
@@ -29,11 +28,12 @@ public class Keyboard {
                     }
                     count += shortestMap.get(s);
                 }
-                System.out.println(answerIndex);
                 answer[answerIndex] = count;
+                answerIndex++;
                 count = 0;
             }
-            System.out.println(answer);
+            System.out.println(answer[0]);
+            System.out.println(answer[1]);
             return answer;
         }
 
